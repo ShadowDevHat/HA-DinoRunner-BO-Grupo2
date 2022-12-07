@@ -1,4 +1,5 @@
 import pygame
+from dino_runner.components.obstacles.obstacle_manage import ObstacleManage
 
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS
 from dino_runner.components.dinosaur import Dinosaur
@@ -11,6 +12,7 @@ class Game:
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
         self.dino = Dinosaur()
+        self.obstacle_manage = ObstacleManage()
         self.playing = False
         self.game_speed = 20
         self.x_pos_bg = 0
@@ -34,6 +36,7 @@ class Game:
     def update(self):
         imput_user = pygame.key.get_pressed()
         self.dino.update(imput_user)
+        self.obstacle_manage.update(self)
 
 
     def draw(self):
@@ -41,6 +44,7 @@ class Game:
         self.screen.fill((255, 255, 255))
         self.draw_background()
         self.dino.draw(self.screen)
+        self.obstacle_manage.draw(self.screen)
         pygame.display.update()
         pygame.display.flip()
 
