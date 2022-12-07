@@ -17,7 +17,7 @@ class Game:
         self.y_pos_bg = 380
 
     def run(self):
-        # Game loop: events - update - draw
+        # 
         self.playing = True
         while self.playing:
             self.events()

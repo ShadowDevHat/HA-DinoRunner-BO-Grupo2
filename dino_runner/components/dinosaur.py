@@ -64,10 +64,11 @@ class Dinosaur(Sprite):
         self.dinosaur_rect.y = self.Y_POS+30
         self.steps += 1
 
-# jumping
+
     def jump(self):
         self.image = JUMPING
         if self.jumping:
+            # jumping
 
             self.dinosaur_rect.y -= self.jump_vel * 4
             self.jump_vel -= 0.8
