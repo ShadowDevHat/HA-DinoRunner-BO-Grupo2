@@ -30,6 +30,7 @@ class Game:
             if event.type == pygame.QUIT:
                 self.playing = False
 
+# jumping
     def update(self):
         imput_user = pygame.key.get_pressed()
         self.dino.update(imput_user)
