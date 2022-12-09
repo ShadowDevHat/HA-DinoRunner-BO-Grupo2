@@ -5,9 +5,7 @@ from dino_runner.components.player_hearts.heart import Heart
 class PlayerHeartManager:
     def __init__(self):
         self.heart_count = HEART_COUNT
-        # self.sound_dead = pygame.mixer.Sound("sounds/dead.mp3")
-        # pygame.mixer.music.load('sounds/run.mp3')
-        # pygame.mixer.music.play(10) 
+        self.sound_dead = pygame.mixer.Sound("sounds/dead.mp3")
     
     def draw(self, screen):
         x_position = 10
@@ -20,4 +18,4 @@ class PlayerHeartManager:
 
     def reduce_heart(self):
         self.heart_count -= 1
-        # self.sound_dead.play()
+        self.sound_dead.play()

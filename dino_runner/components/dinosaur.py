@@ -29,7 +29,7 @@ class Dinosaur(Sprite):
         self.jump_vel = self.JUMP_VEL
         self.has_lives = True
 
-        # self.jump_sound = pygame.mixer.Sound("sounds/jump.mp3")
+        self.jump_sound = pygame.mixer.Sound("sounds/jump.mp3")
         self.setup_state_booleans()
 
     def setup_state_booleans(self):
@@ -56,7 +56,7 @@ class Dinosaur(Sprite):
             self.ducking = False
             self.running = False
             self.jumping = True
-            # self.jump_sound.play()
+            self.jump_sound.play()
         elif not self.jumping:
             self.ducking = False
             self.running = True

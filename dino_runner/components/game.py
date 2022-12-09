@@ -24,11 +24,12 @@ class Game:
         self.playing = False
         self.game_speed = 20
         self.x_pos_bg = 0
-        self.y_pos_bg = 380
+        self.y_pos_bg = 390
         self.points = 0
         self.death_count = 0
         self.running = True
         
+        self.fondo = pygame.image.load("fondo.png").convert()
                
 
     def execute(self):
@@ -64,7 +65,7 @@ class Game:
 
 
     def draw(self):
-        self.screen.fill((WHITE_COLOR))
+        self.screen.blit(self.fondo, [0,0])
         self.clock.tick(FPS)
         self.score()
         self.draw_background()

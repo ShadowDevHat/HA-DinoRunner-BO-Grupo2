@@ -7,7 +7,8 @@ class PowerUpManager:
         self.power_ups = []
         self.points = 0
         self.when_appears = 0
-        
+        self.sound_run = pygame.mixer.Sound("sounds/run.mp3")
+
 
     def update(self, points, game_speed, player):
         self.generate_power_ups(points)
@@ -16,12 +17,17 @@ class PowerUpManager:
             if(player.dinosaur_rect.colliderect(power_up.rect)):
                 power_up.start_time = pygame.time.get_ticks()
                 player.shield = True
+
+                self.sound_run.play()
                 
                 player.type = power_up.type 
                 power_up.star_time = pygame.time.get_ticks()
                 time_random = random.randrange(5,8)
                 player.shiel_time_up = power_up.start_time + (time_random * 1000)
 
+
+                if player.shiel_time_up <= 0:
+                    self.sound_run.stop()
                 self.power_ups.remove(power_up)
                 
                
