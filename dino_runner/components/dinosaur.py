@@ -23,6 +23,7 @@ class Dinosaur(Sprite):
         self.ducking = False
         self.jumping = False
         self.jump_vel = self.JUMP_VEL
+        self.jump_sound = pygame.mixer.Sound("sounds/jump.mp3")
 
     def update(self, input_user):
         if self.running:
@@ -42,6 +43,7 @@ class Dinosaur(Sprite):
             self.ducking = False
             self.running = False
             self.jumping = True
+            self.jump_sound.play()
         elif not self.jumping:
             self.ducking = False
             self.running = True
